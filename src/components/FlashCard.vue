@@ -13,7 +13,7 @@
           src="https://img.icons8.com/ios-glyphs/30/000000/filled-like.png"
         />
       </div>
-
+      <p>{{ questionsAnsweredAmount }} / {{ questionsAmount }}</p>
       <h2 class="card-title">{{ cartTitle }}</h2>
 
       <p class="text-3xl">{{ currentQuestion.question }}</p>
@@ -40,7 +40,7 @@ export default defineComponent({
     const { currentTopicId } = storeToRefs(topicStore);
 
     const questionSet = questionSetStore();
-    const { currentQuestion } = storeToRefs(questionSet);
+    const { currentQuestion, questions, questionsHaveBeenAnswered } = storeToRefs(questionSet);
     const getRandomQuestion = questionSet.getRandomQuestion;
     getRandomQuestion();
 
@@ -53,6 +53,9 @@ export default defineComponent({
     });
     const cartTitle = computed(() => currentTopicMap[currentTopicId.value]);
 
+    const questionsAmount = computed(() => questions.value.length);
+    const questionsAnsweredAmount = computed(() => questionsHaveBeenAnswered.value.length);
+
     watch(currentTopicId, () => {
       getRandomQuestion();
     });
@@ -60,6 +63,8 @@ export default defineComponent({
     return {
       cartTitle,
       currentQuestion,
+      questionsAmount,
+      questionsAnsweredAmount,
       getRandomQuestion,
     };
   },
