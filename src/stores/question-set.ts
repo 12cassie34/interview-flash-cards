@@ -1,11 +1,8 @@
 import { defineStore } from 'pinia'
 
-import commonQuestions from "../json/common-questions.json";
+import { Question } from '../types/types';
 
-type Question = {
-    question: string;
-    liked: boolean;
-};
+import commonQuestions from "../json/common-questions.json";
 
 export const questionSetStore = defineStore('questionSetStore', {
     state: () => {

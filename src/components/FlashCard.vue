@@ -1,7 +1,7 @@
 <template>
   <div class="card w-10/12 bg-base-100 shadow-xl image-full">
     <div class="card-body">
-      <div class="icon-group w-6">
+      <div @click="toggleLikedQuestion()" class="icon-group w-6">
         <img
           v-if="!currentQuestion.liked"
           class="cursor-pointer"
@@ -33,6 +33,7 @@ import { storeToRefs } from "pinia";
 
 import { currentTopicStore } from "../stores/current-topic";
 import { questionSetStore } from "../stores/question-set";
+import { favoriteQuestionsStore } from "../stores/favorite-questions";
 
 export default defineComponent({
   setup() {
@@ -40,7 +41,8 @@ export default defineComponent({
     const { currentTopicId } = storeToRefs(topicStore);
 
     const questionSet = questionSetStore();
-    const { currentQuestion, questions, questionsHaveBeenAnswered } = storeToRefs(questionSet);
+    const { currentQuestion, questions, questionsHaveBeenAnswered } =
+      storeToRefs(questionSet);
     const getRandomQuestion = questionSet.getRandomQuestion;
     getRandomQuestion();
 
@@ -54,7 +56,19 @@ export default defineComponent({
     const cartTitle = computed(() => currentTopicMap[currentTopicId.value]);
 
     const questionsAmount = computed(() => questions.value.length);
-    const questionsAnsweredAmount = computed(() => questionsHaveBeenAnswered.value.length);
+    const questionsAnsweredAmount = computed(
+      () => questionsHaveBeenAnswered.value.length
+    );
+
+    const favoriteQuestions = favoriteQuestionsStore();
+    const toggleLikedQuestion = () => {
+      if (currentQuestion.value.liked) {
+        currentQuestion.value.liked = false;
+      } else {
+        currentQuestion.value.liked = true;
+      }
+      favoriteQuestions.toggleLikedQuestion(currentQuestion.value);
+    };
 
     watch(currentTopicId, () => {
       getRandomQuestion();
@@ -66,6 +80,7 @@ export default defineComponent({
       questionsAmount,
       questionsAnsweredAmount,
       getRandomQuestion,
+      toggleLikedQuestion,
     };
   },
 });
