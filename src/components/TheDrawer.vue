@@ -49,7 +49,7 @@ export default defineComponent({
         id: "02",
         title: "Common Questions",
         router: "",
-        isActive: false,
+        isActive: true,
       },
       {
         id: "03",

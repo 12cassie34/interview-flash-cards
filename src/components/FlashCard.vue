@@ -19,14 +19,16 @@
       <p class="text-3xl">{{ currentQuestion.question }}</p>
       <div class="justify-end card-actions">
         <button class="btn btn-error">Not so familiar!</button>
-        <button class="btn btn-primary">Easy to me!</button>
+        <button @click="getRandomQuestion" class="btn btn-primary">
+          Easy to me!
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, ref, watch, computed } from "vue";
 import { storeToRefs } from "pinia";
 
 import { currentTopicStore } from "../stores/current-topic";
@@ -49,16 +51,16 @@ export default defineComponent({
       "04": { value: "CSS" },
       "05": { value: "JavaScript" },
     });
+    const cartTitle = computed(() => currentTopicMap[currentTopicId.value]);
 
-    const cartTitle = ref("");
     watch(currentTopicId, () => {
-      cartTitle.value = currentTopicMap[currentTopicId.value];
       getRandomQuestion();
     });
 
     return {
       cartTitle,
-      currentQuestion
+      currentQuestion,
+      getRandomQuestion,
     };
   },
 });
