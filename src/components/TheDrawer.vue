@@ -12,7 +12,7 @@
       <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
         <li
           @click="changeCurrentTopic(item.id)"
-          v-for="(item, index) in menu"
+          v-for="(item, index) in topicMenu"
           :key="index"
         >
           <button
@@ -38,55 +38,16 @@ import FlashCard from "./FlashCard.vue";
 export default defineComponent({
   components: { FlashCard },
   setup() {
-    const menu = ref([
-      {
-        id: "01",
-        title: "Mixed All Questions",
-        router: "",
-        isActive: false,
-      },
-      {
-        id: "02",
-        title: "Common Questions",
-        router: "",
-        isActive: true,
-      },
-      {
-        id: "03",
-        title: "HTML",
-        router: "",
-        isActive: false,
-      },
-      {
-        id: "04",
-        title: "CSS",
-        router: "",
-        isActive: false,
-      },
-      {
-        id: "05",
-        title: "JavaScript",
-        router: "",
-        isActive: false,
-      },
-    ]);
-
     const topicStore = currentTopicStore();
-    const { currentTopicId } = storeToRefs(topicStore);
+    const { currentTopicId, topicMenu } = storeToRefs(topicStore);
     const changeCurrentTopic = topicStore.changeCurrentTopic;
+    const changeActiveStatus = topicStore.changeActiveStatus;
 
     watch(currentTopicId, () => {
-      menu.value.forEach((item) => {
-        console.log(item);
-        if (item.id === currentTopicId.value) {
-          item.isActive = true;
-        } else {
-          item.isActive = false;
-        }
-      });
+      changeActiveStatus();
     });
 
-    return { menu, changeCurrentTopic };
+    return { topicMenu, changeCurrentTopic };
   },
 });
 </script>
