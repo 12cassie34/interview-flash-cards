@@ -1,7 +1,6 @@
 <template>
   <div class="h-screen drawer w-full rounded">
     <TheDrawer />
-    <!-- </div> -->
   </div>
 </template>
 

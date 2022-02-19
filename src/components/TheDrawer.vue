@@ -2,6 +2,7 @@
   <div class="h-screen drawer drawer-mobile w-full">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
     <div class="flex flex-col items-center justify-center drawer-content">
+      <FlashCard />
       <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden"
         >Open drawer</label
       >
@@ -32,7 +33,10 @@ import { storeToRefs } from "pinia";
 
 import { currentTopicStore } from "../stores/current-topic";
 
+import FlashCard from "./FlashCard.vue";
+
 export default defineComponent({
+  components: { FlashCard },
   setup() {
     const menu = ref([
       {
