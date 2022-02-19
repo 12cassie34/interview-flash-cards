@@ -1,11 +1,22 @@
 <template>
   <div class="card w-10/12 bg-base-100 shadow-xl image-full">
-    <figure>
-      <img src="https://picsum.photos/400/225" alt="Shoes" />
-    </figure>
     <div class="card-body">
+      <div class="icon-group w-6">
+        <img
+          v-if="!currentQuestion.liked"
+          class="cursor-pointer"
+          src="https://img.icons8.com/material-outlined/24/000000/filled-like.png"
+        />
+        <img
+          v-else
+          class="cursor-pointer"
+          src="https://img.icons8.com/ios-glyphs/30/000000/filled-like.png"
+        />
+      </div>
+
       <h2 class="card-title">{{ cartTitle }}</h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
+
+      <p class="text-3xl">{{ currentQuestion.question }}</p>
       <div class="justify-end card-actions">
         <button class="btn btn-error">Not so familiar!</button>
         <button class="btn btn-primary">Easy to me!</button>
@@ -19,11 +30,17 @@ import { defineComponent, ref, watch } from "vue";
 import { storeToRefs } from "pinia";
 
 import { currentTopicStore } from "../stores/current-topic";
+import { questionSetStore } from "../stores/question-set";
 
 export default defineComponent({
   setup() {
     const topicStore = currentTopicStore();
     const { currentTopicId } = storeToRefs(topicStore);
+
+    const questionSet = questionSetStore();
+    const { currentQuestion } = storeToRefs(questionSet);
+    const getRandomQuestion = questionSet.getRandomQuestion;
+    getRandomQuestion();
 
     const currentTopicMap = Object.create(null, {
       "01": { value: "Mixed All Questions" },
@@ -36,10 +53,12 @@ export default defineComponent({
     const cartTitle = ref("");
     watch(currentTopicId, () => {
       cartTitle.value = currentTopicMap[currentTopicId.value];
+      getRandomQuestion();
     });
 
     return {
       cartTitle,
+      currentQuestion
     };
   },
 });

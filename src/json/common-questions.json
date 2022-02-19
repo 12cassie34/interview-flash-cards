@@ -1,0 +1,38 @@
+[
+    {
+        "question": "Tell me about yourself",
+        "liked": false
+    },
+    {
+        "question": "Why do you want to leave your current/last company?",
+        "liked": false
+    },
+    {
+        "question": "What are you looking for in your next role?",
+        "liked": false
+    },
+    {
+        "question": "Tell me about a time when you had a conflict with a co-worker.",
+        "liked": false
+    },
+    {
+        "question": "What project are you currently working on?",
+        "liked": false
+    },
+    {
+        "question": "What is the most challenging aspect of your current project?",
+        "liked": false
+    },
+    {
+        "question": "What was the most difficult bug that you fixed in the past 6 months?",
+        "liked": false
+    },
+    {
+        "question": "How do you tackle challenges? Name a difficult challenge you faced while working on a project, how you overcame it, and what you learned.",
+        "liked": false
+    },
+    {
+        "question": "What are you excited about?",
+        "liked": false
+    }
+]
