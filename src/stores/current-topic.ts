@@ -1,6 +1,7 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
+import { questionSetStore } from "./question-set";
 
-export const currentTopicStore = defineStore('currentTopic', {
+export const currentTopicStore = defineStore("currentTopic", {
     state: () => {
         return {
             currentTopicId: "01",
@@ -41,10 +42,12 @@ export const currentTopicStore = defineStore('currentTopic', {
     actions: {
         changeCurrentTopic(topicId: string) {
             this.currentTopicId = topicId;
+            const questionSet = questionSetStore()
+            questionSet.setQuestionSet(topicId);
         },
         changeActiveStatus() {
             this.topicMenu.forEach(item => {
-                if(item.id === this.currentTopicId) {
+                if (item.id === this.currentTopicId) {
                     item.isActive = true;
                 } else {
                     item.isActive = false;
