@@ -18,7 +18,7 @@
 
       <p class="text-3xl">{{ currentQuestion.question }}</p>
       <div class="justify-end card-actions">
-        <button class="btn btn-error">Not so familiar!</button>
+        <button @click="addUnfamiliarQuestion" class="btn btn-error">Not so familiar!</button>
         <button @click="getRandomQuestion" class="btn btn-primary">
           Easy to me!
         </button>
@@ -34,6 +34,7 @@ import { storeToRefs } from "pinia";
 import { currentTopicStore } from "../stores/current-topic";
 import { questionSetStore } from "../stores/question-set";
 import { favoriteQuestionsStore } from "../stores/favorite-questions";
+import { unfamiliarQuestionsStore } from "../stores/unfamiliar-questions";
 
 export default defineComponent({
   setup() {
@@ -70,6 +71,12 @@ export default defineComponent({
       favoriteQuestions.toggleLikedQuestion(currentQuestion.value);
     };
 
+    const unfamiliarQuestions = unfamiliarQuestionsStore();
+    const addUnfamiliarQuestion = () => {
+      unfamiliarQuestions.addUnfamiliarQuestion(currentQuestion.value);
+      getRandomQuestion();
+    };
+
     watch(currentTopicId, () => {
       getRandomQuestion();
     });
@@ -81,6 +88,7 @@ export default defineComponent({
       questionsAnsweredAmount,
       getRandomQuestion,
       toggleLikedQuestion,
+      addUnfamiliarQuestion,
     };
   },
 });
