@@ -2,7 +2,8 @@
   <div class="h-screen drawer drawer-mobile w-full">
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
     <div class="flex flex-col items-center justify-center drawer-content">
-      <FlashCard />
+      <FlashCard v-if="!hasFinished" />
+      <PlayAgainCard v-if="hasFinished" />
       <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden"
         >Open drawer</label
       >
@@ -28,26 +29,32 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, ref, watch, computed } from "vue";
 import { storeToRefs } from "pinia";
 
 import { currentTopicStore } from "../stores/current-topic";
+import { questionSetStore } from "../stores/question-set";
 
 import FlashCard from "./FlashCard.vue";
+import PlayAgainCard from "./PlayAgainCard.vue";
 
 export default defineComponent({
-  components: { FlashCard },
+  components: { FlashCard, PlayAgainCard },
   setup() {
     const topicStore = currentTopicStore();
     const { currentTopicId, topicMenu } = storeToRefs(topicStore);
     const changeCurrentTopic = topicStore.changeCurrentTopic;
     const changeActiveStatus = topicStore.changeActiveStatus;
 
+    const questionSet = questionSetStore();
+    const { hasFinished } = storeToRefs(questionSet);
+
+
     watch(currentTopicId, () => {
       changeActiveStatus();
     });
 
-    return { topicMenu, changeCurrentTopic };
+    return { topicMenu, hasFinished, changeCurrentTopic };
   },
 });
 </script>

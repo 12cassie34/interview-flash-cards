@@ -13,12 +13,14 @@
           src="https://img.icons8.com/ios-glyphs/30/000000/filled-like.png"
         />
       </div>
-      <p>{{ questionsAnsweredAmount }} / {{ questionsAmount }}</p>
+      <p>{{ questionsAmount }} / {{ totalQuestionsAmount }}</p>
       <h2 class="card-title">{{ cartTitle }}</h2>
 
       <p class="text-3xl">{{ currentQuestion.question }}</p>
       <div class="justify-end card-actions">
-        <button @click="addUnfamiliarQuestion" class="btn btn-error">Not so familiar!</button>
+        <button @click="addUnfamiliarQuestion" class="btn btn-error">
+          Not so familiar!
+        </button>
         <button @click="getRandomQuestion" class="btn btn-primary">
           Easy to me!
         </button>
@@ -42,7 +44,7 @@ export default defineComponent({
     const { currentTopicId } = storeToRefs(topicStore);
 
     const questionSet = questionSetStore();
-    const { currentQuestion, questions, questionsHaveBeenAnswered } =
+    const { currentQuestion, questions } =
       storeToRefs(questionSet);
     const getRandomQuestion = questionSet.getRandomQuestion;
     getRandomQuestion();
@@ -56,11 +58,11 @@ export default defineComponent({
     });
     const cartTitle = computed(() => currentTopicMap[currentTopicId.value]);
 
-    const questionsAmount = computed(() => questions.value.length);
-    const questionsAnsweredAmount = computed(
-      () => questionsHaveBeenAnswered.value.length
-    );
-
+    const totalQuestionsAmount = ref(questions.value.length + 1);
+    const questionsAmount = computed(() => {
+      return totalQuestionsAmount.value - questions.value.length
+    });
+    
     const favoriteQuestions = favoriteQuestionsStore();
     const toggleLikedQuestion = () => {
       if (currentQuestion.value.liked) {
@@ -85,7 +87,7 @@ export default defineComponent({
       cartTitle,
       currentQuestion,
       questionsAmount,
-      questionsAnsweredAmount,
+      totalQuestionsAmount,
       getRandomQuestion,
       toggleLikedQuestion,
       addUnfamiliarQuestion,

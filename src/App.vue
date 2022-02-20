@@ -11,7 +11,8 @@ import TheDrawer from "./components/TheDrawer.vue";
 
 export default defineComponent({
   components: { TheDrawer },
-  setup() {},
+  setup() {
+  },
 });
 </script>
 
