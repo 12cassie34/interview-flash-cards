@@ -49,7 +49,6 @@ export default defineComponent({
     const questionSet = questionSetStore();
     const { hasFinished } = storeToRefs(questionSet);
 
-
     watch(currentTopicId, () => {
       changeActiveStatus();
     });

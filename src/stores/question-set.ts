@@ -15,8 +15,8 @@ export const questionSetStore = defineStore('questionSetStore', {
         return {
             questions: commonQuestions,
             currentQuestion: commonQuestions[0] as Question,
+            totalQuestionAmount: commonQuestions.length,
             hasFinished: false,
-            
         }
     },
     actions: {
@@ -36,6 +36,7 @@ export const questionSetStore = defineStore('questionSetStore', {
             this.questions = questionSetMap[topicId];
             this.currentQuestion = this.questions[0];
             this.hasFinished = false;
+            this.totalQuestionAmount = this.questions.length;
         },
         getRandomQuestion() {
             if (this.questions.length !== 0) {

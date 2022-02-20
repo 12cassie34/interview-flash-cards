@@ -13,7 +13,7 @@
           src="https://img.icons8.com/ios-glyphs/30/000000/filled-like.png"
         />
       </div>
-      <p>{{ questionsAmount }} / {{ totalQuestionsAmount }}</p>
+      <p>{{ questionsAmount }} / {{ totalQuestionAmount }}</p>
       <h2 class="card-title">{{ cartTitle }}</h2>
 
       <p class="text-3xl">{{ currentQuestion.question }}</p>
@@ -44,8 +44,7 @@ export default defineComponent({
     const { currentTopicId } = storeToRefs(topicStore);
 
     const questionSet = questionSetStore();
-    const { currentQuestion, questions } =
-      storeToRefs(questionSet);
+    const { currentQuestion, questions, totalQuestionAmount } = storeToRefs(questionSet);
     const getRandomQuestion = questionSet.getRandomQuestion;
     getRandomQuestion();
 
@@ -58,11 +57,11 @@ export default defineComponent({
     });
     const cartTitle = computed(() => currentTopicMap[currentTopicId.value]);
 
-    const totalQuestionsAmount = ref(questions.value.length + 1);
     const questionsAmount = computed(() => {
-      return totalQuestionsAmount.value - questions.value.length
+      return totalQuestionAmount.value - questions.value.length;
     });
-    
+    console.log(totalQuestionAmount.value)
+
     const favoriteQuestions = favoriteQuestionsStore();
     const toggleLikedQuestion = () => {
       if (currentQuestion.value.liked) {
@@ -87,7 +86,7 @@ export default defineComponent({
       cartTitle,
       currentQuestion,
       questionsAmount,
-      totalQuestionsAmount,
+      totalQuestionAmount,
       getRandomQuestion,
       toggleLikedQuestion,
       addUnfamiliarQuestion,
