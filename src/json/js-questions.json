@@ -1,0 +1,218 @@
+[
+    {
+        "question": "Explain event delegation",
+        "liked": false
+    },
+    {
+        "question": "Explain how this works in JavaScript",
+        "liked": false
+    },
+    {
+        "question": "Explain how prototypal inheritance works",
+        "liked": false
+    },
+    {
+        "question": "What do you think of AMD vs CommonJS?",
+        "liked": false
+    },
+    {
+        "question": "Explain why the following doesn't work as an IIFE: function foo(){ }();. What needs to be changed to properly make it an IIFE?",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between a variable that is: null, undefined or undeclared? How would you go about checking for any of these states?",
+        "liked": false
+    },
+    {
+        "question": "What is a closure, and how/why would you use one?",
+        "liked": false
+    },
+    {
+        "question": "Can you describe the main difference between a .forEach loop and a .map() loop and why you would pick one versus the other?",
+        "liked": false
+    },
+    {
+        "question": "What's a typical use case for anonymous functions?",
+        "liked": false
+    },
+    {
+        "question": "How do you organize your code? (module pattern, classical inheritance?)",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between host objects and native objects?",
+        "liked": false
+    },
+    {
+        "question": "Difference between: function Person(){}, var person = Person(), and var person = new Person()?",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between .call and .apply?",
+        "liked": false
+    },
+    {
+        "question": "Explain Function.prototype.bind.",
+        "liked": false
+    },
+    {
+        "question": "When would you use document.write()?",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between feature detection, feature inference, and using the UA string?",
+        "liked": false
+    },
+    {
+        "question": "Explain Ajax in as much detail as possible.",
+        "liked": false
+    },
+    {
+        "question": "What are the advantages and disadvantages of using Ajax?",
+        "liked": false
+    },
+    {
+        "question": "Explain how JSONP works (and how it's not really Ajax).",
+        "liked": false
+    },
+    {
+        "question": "Have you ever used JavaScript templating? If so, what libraries have you used?",
+        "liked": false
+    },
+    {
+        "question": "Explain \"hoisting\".",
+        "liked": false
+    },
+    {
+        "question": "Describe event bubbling.",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between an \"attribute\" and a \"property\"?",
+        "liked": false
+    },
+    {
+        "question": "Why is extending built-in JavaScript objects not a good idea?",
+        "liked": false
+    },
+    {
+        "question": "Difference between document load event and document DOMContentLoaded event?",
+        "liked": false
+    },
+    {
+        "question": "What is the difference between == and ===?",
+        "liked": false
+    },
+    {
+        "question": "Explain the same-origin policy with regards to JavaScript.",
+        "liked": false
+    },
+    {
+        "question": "Make this work: duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]",
+        "liked": false
+    },
+    {
+        "question": "Why is it called a Ternary expression, what does the word \"Ternary\" indicate?",
+        "liked": false
+    },
+    {
+        "question": "What is \"use strict\";? what are the advantages and disadvantages to using it?",
+        "liked": false
+    },
+    {
+        "question": "Create a for loop that iterates up to 100 while outputting \"fizz\" at multiples of 3, \"buzz\" at multiples of 5 and \"fizzbuzz\" at multiples of 3 and 5",
+        "liked": false
+    },
+    {
+        "question": "Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?",
+        "liked": false
+    },
+    {
+        "question": "Why would you use something like the load event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?",
+        "liked": false
+    },
+    {
+        "question": "Explain what a single page app is and how to make one SEO-friendly.",
+        "liked": false
+    },
+    {
+        "question": "What is the extent of your experience with Promises and/or their polyfills?",
+        "liked": false
+    },
+    {
+        "question": "What are the pros and cons of using Promises instead of callbacks?",
+        "liked": false
+    },
+    {
+        "question": "What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?",
+        "liked": false
+    },
+    {
+        "question": "What tools and techniques do you use debugging JavaScript code?",
+        "liked": false
+    },
+    {
+        "question": "What language constructions do you use for iterating over object properties and array items?",
+        "liked": false
+    },
+    {
+        "question": "Explain the difference between mutable and immutable objects.",
+        "liked": false
+    },
+    {
+        "question": "Explain the difference between synchronous and asynchronous functions.",
+        "liked": false
+    },
+    {
+        "question": "What is event loop? What is the difference between call stack and task queue?",
+        "liked": false
+    },
+    {
+        "question": "Explain the differences on the usage of foo between function foo() {} and var foo = function() {}",
+        "liked": false
+    },
+    {
+        "question": "What are the differences between variables created using let, var or const?",
+        "liked": false
+    },
+    {
+        "question": "What are the differences between ES6 class and ES5 function constructors?",
+        "liked": false
+    },
+    {
+        "question": "Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?",
+        "liked": false
+    },
+    {
+        "question": "What advantage is there for using the arrow syntax for a method in a constructor?",
+        "liked": false
+    },
+    {
+        "question": "What is the definition of a higher-order function?",
+        "liked": false
+    },
+    {
+        "question": "Can you give an example for destructuring an object or an array?",
+        "liked": false
+    },
+    {
+        "question": "ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?",
+        "liked": false
+    },
+    {
+        "question": "Can you give an example of a curry function and why this syntax offers an advantage?",
+        "liked": false
+    },
+    {
+        "question": "What are the benefits of using spread syntax and how is it different from rest syntax?",
+        "liked": false
+    },
+    {
+        "question": "How can you share code between files?",
+        "liked": false
+    },
+    {
+        "question": "Why you might want to create static class members?",
+        "liked": false
+    }
+]

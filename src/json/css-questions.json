@@ -1,0 +1,126 @@
+[
+    {
+        "question": "What is CSS selector specificity and how does it work?",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between \"resetting\" and \"normalizing\" CSS? Which would you choose, and why?",
+        "liked": false
+    },
+    {
+        "question": "Describe z-index and how stacking context is formed.",
+        "liked": false
+    },
+    {
+        "question": "Describe floats and how they work.",
+        "liked": false
+    },
+    {
+        "question": "Describe Block Formatting Context (BFC) and how it works.",
+        "liked": false
+    },
+    {
+        "question": "What are the various clearing techniques and which is appropriate for what context?",
+        "liked": false
+    },
+    {
+        "question": "Explain CSS sprites, and how you would implement them on a page or site.",
+        "liked": false
+    },
+    {
+        "question": "How would you approach fixing browser-specific styling issues?",
+        "liked": false
+    },
+    {
+        "question": "How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?",
+        "liked": false
+    },
+    {
+        "question": "What are the different ways to visually hide content (and make it available only for screen readers)?",
+        "liked": false
+    },
+    {
+        "question": "Have you ever used a grid system, and if so, what do you prefer?",
+        "liked": false
+    },
+    {
+        "question": "Have you used or implemented media queries or mobile-specific layouts/CSS?",
+        "liked": false
+    },
+    {
+        "question": "Are you familiar with styling SVG?",
+        "liked": false
+    },
+    {
+        "question": "Can you give an example of an @media property other than screen?",
+        "liked": false
+    },
+    {
+        "question": "What are some of the \"gotchas\" for writing efficient CSS?",
+        "liked": false
+    },
+    {
+        "question": "What are the advantages/disadvantages of using CSS preprocessors?",
+        "liked": false
+    },
+    {
+        "question": "Describe what you like and dislike about the CSS preprocessors you have used.",
+        "liked": false
+    },
+    {
+        "question": "How would you implement a web design comp that uses non-standard fonts?",
+        "liked": false
+    },
+    {
+        "question": "Explain how a browser determines what elements match a CSS selector.",
+        "liked": false
+    },
+    {
+        "question": "Describe pseudo-elements and discuss what they are used for.",
+        "liked": false
+    },
+    {
+        "question": "Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.",
+        "liked": false
+    },
+    {
+        "question": "What does * { box-sizing: border-box; } do? What are its advantages?",
+        "liked": false
+    },
+    {
+        "question": "What is the CSS display property and can you give a few examples of its use?",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between inline and inline-block?",
+        "liked": false
+    },
+    {
+        "question": "What's the difference between a relative, fixed, absolute and statically positioned element?",
+        "liked": false
+    },
+    {
+        "question": "What existing CSS frameworks have you used locally, or in production? How would you change/improve them?",
+        "liked": false
+    },
+    {
+        "question": "Have you played around with the new CSS Flexbox or Grid specs?",
+        "liked": false
+    },
+    {
+        "question": "Can you explain the difference between coding a website to be responsive versus using a mobile-first strategy?",
+        "liked": false
+    },
+    {
+        "question": "How is responsive design different from adaptive design?",
+        "liked": false
+    },
+    {
+        "question": "Have you ever worked with retina graphics? If so, when and what techniques did you use?",
+        "liked": false
+    },
+    {
+        "question": "Is there any reason you'd want to use translate() instead of absolute positioning, or vice-versa? And why?",
+        "liked": false
+    }
+]
