@@ -5,6 +5,9 @@ export const setLocalStorage = (storageName: string, value: Question[]) => {
 }
 
 export const getLocalStorage = (storageName: string) => {
-    const questions: Question[] = JSON.parse(localStorage.getItem(storageName) || "");
-    return questions;
+    if (localStorage.getItem(storageName)) {
+        const questions: Question[] = JSON.parse(localStorage.getItem(storageName) || "");
+        return questions;
+    }
+    return null;
 }

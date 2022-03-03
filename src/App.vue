@@ -19,10 +19,10 @@ export default defineComponent({
   setup() {
     const likedQuestions = getLocalStorage("likedQuestions");
     const unfamiliarQuestions = getLocalStorage("unfamiliarQuestions");
-    if (likedQuestions.length) {
+    if (likedQuestions) {
       favoriteQuestionsStore().initializeQuestions(likedQuestions);
     }
-    if (unfamiliarQuestions.length) {
+    if (unfamiliarQuestions) {
       unfamiliarQuestionsStore().initializeQuestions(unfamiliarQuestions);
     }
   },
