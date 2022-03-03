@@ -15,12 +15,13 @@ export const favoriteQuestionsStore = defineStore('favoriteQuestionsStore', {
             this.favoriteQuestions = questions;
         },
         toggleLikedQuestion(question: Question) {
-            this.favoriteQuestions.push(question);
+            const isExisted: boolean = this.favoriteQuestions.includes(question);
+            if (isExisted) {
+                this.favoriteQuestions = this.favoriteQuestions.filter(item => item.question !== question.question);
+            } else {
+                this.favoriteQuestions.push(question);
+            }
             setLocalStorage('likedQuestions', this.favoriteQuestions);
         },
-        removeLikedQuestion(question: Question) {
-            this.favoriteQuestions = this.favoriteQuestions.filter(item => item.question !== question.question);
-            setLocalStorage('likedQuestions', this.favoriteQuestions);
-        }
     },
 })
