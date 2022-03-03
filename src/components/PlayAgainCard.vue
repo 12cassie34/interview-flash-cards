@@ -11,12 +11,14 @@
         </p>
         <div class="button-group">
           <button
+            v-if="hasFavoriteQuestions"
             @click="setQuestionSet('unfamiliar')"
             class="mr-4 btn btn-primary"
           >
             Unfamiliar Questions
           </button>
           <button
+            v-if="hasUnfamilarQuestions"
             @click="setQuestionSet('liked')"
             class="ml-4 btn btn-secondary"
           >
@@ -33,13 +35,18 @@
 import { defineComponent } from "vue";
 
 import { questionSetStore } from "../stores/question-set";
+import { favoriteQuestionsStore } from "../stores/favorite-questions";
+import { unfamiliarQuestionsStore } from "../stores/unfamiliar-questions";
 
 export default defineComponent({
   setup() {
     const questionSet = questionSetStore();
     const setQuestionSet = questionSet.setQuestionSet;
 
-    return { setQuestionSet };
+    const hasFavoriteQuestions = favoriteQuestionsStore().favoriteQuestions.length ? true : false;
+    const hasUnfamilarQuestions = unfamiliarQuestionsStore().unfamiliarQuestions.length ? true : false;
+
+    return { setQuestionSet, hasFavoriteQuestions, hasUnfamilarQuestions };
   },
 });
 </script>
