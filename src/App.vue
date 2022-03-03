@@ -9,9 +9,22 @@ import { defineComponent } from "vue";
 
 import TheDrawer from "./components/TheDrawer.vue";
 
+import { getLocalStorage } from "./functions/setAndGetLocalStorage";
+
+import { favoriteQuestionsStore } from "./stores/favorite-questions";
+import { unfamiliarQuestionsStore } from "./stores/unfamiliar-questions";
+
 export default defineComponent({
   components: { TheDrawer },
   setup() {
+    const likedQuestions = getLocalStorage("likedQuestions");
+    const unfamiliarQuestions = getLocalStorage("unfamiliarQuestions");
+    if (likedQuestions.length) {
+      favoriteQuestionsStore().initializeQuestions(likedQuestions);
+    }
+    if (unfamiliarQuestions.length) {
+      unfamiliarQuestionsStore().initializeQuestions(unfamiliarQuestions);
+    }
   },
 });
 </script>
