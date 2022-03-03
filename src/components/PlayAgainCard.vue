@@ -11,14 +11,14 @@
         </p>
         <div class="button-group">
           <button
-            v-if="hasFavoriteQuestions"
+            v-if="hasUnfamilarQuestions"
             @click="setQuestionSet('unfamiliar')"
             class="mr-4 btn btn-primary"
           >
             Unfamiliar Questions
           </button>
           <button
-            v-if="hasUnfamilarQuestions"
+            v-if="hasFavoriteQuestions"
             @click="setQuestionSet('liked')"
             class="ml-4 btn btn-secondary"
           >

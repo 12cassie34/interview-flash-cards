@@ -60,7 +60,6 @@ export default defineComponent({
     const questionsAmount = computed(() => {
       return totalQuestionAmount.value - questions.value.length;
     });
-    console.log(totalQuestionAmount.value)
 
     const favoriteQuestions = favoriteQuestionsStore();
     const toggleLikedQuestion = () => {
