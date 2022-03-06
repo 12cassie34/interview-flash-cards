@@ -36,6 +36,18 @@ export const currentTopicStore = defineStore("currentTopic", {
                     router: "",
                     isActive: false,
                 },
+                {
+                    id: "unfamiliar",
+                    title: "Unfamiliar Questions",
+                    router: "",
+                    isActive: false
+                },
+                {
+                    id: "liked",
+                    title: "Liked Questions",
+                    router: "",
+                    isActive: false
+                },
             ]
         }
     },
