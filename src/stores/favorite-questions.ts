@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import { Question } from '../types/types';
 
 import { setLocalStorage } from "../functions/setAndGetLocalStorage";
+import { addOrRemoveAQuestion } from "../functions/addOrRemoveAQuetion";
 
 export const favoriteQuestionsStore = defineStore('favoriteQuestionsStore', {
     state: () => {
@@ -15,12 +16,7 @@ export const favoriteQuestionsStore = defineStore('favoriteQuestionsStore', {
             this.favoriteQuestions = questions;
         },
         toggleLikedQuestion(question: Question) {
-            const isExisted: boolean = this.favoriteQuestions.includes(question);
-            if (isExisted) {
-                this.favoriteQuestions = this.favoriteQuestions.filter(item => item.question !== question.question);
-            } else {
-                this.favoriteQuestions.push(question);
-            }
+            this.favoriteQuestions = addOrRemoveAQuestion(question, this.favoriteQuestions);
             setLocalStorage('likedQuestions', this.favoriteQuestions);
         },
     },

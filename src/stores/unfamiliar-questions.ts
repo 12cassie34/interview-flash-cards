@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 import { Question } from "../types/types";
 
 import { setLocalStorage } from "../functions/setAndGetLocalStorage";
+import { addOrRemoveAQuestion } from "../functions/addOrRemoveAQuetion";
 
 export const unfamiliarQuestionsStore = defineStore("unfamiliarQuestionsStore", {
     state: () => {
@@ -14,8 +15,8 @@ export const unfamiliarQuestionsStore = defineStore("unfamiliarQuestionsStore", 
         initializeQuestions(questions: Question[]) {
             this.unfamiliarQuestions = questions;
         },
-        addUnfamiliarQuestion(question: Question) {
-            this.unfamiliarQuestions.push(question);
+        toggleUnfamiliarQuestion(question: Question) {
+            this.unfamiliarQuestions = addOrRemoveAQuestion(question, this.unfamiliarQuestions);
             setLocalStorage('unfamiliarQuestions', this.unfamiliarQuestions);
         },
     },

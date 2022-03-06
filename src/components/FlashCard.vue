@@ -18,7 +18,18 @@
 
       <p class="text-3xl">{{ currentQuestion.question }}</p>
       <div class="justify-end card-actions">
-        <button @click="addUnfamiliarQuestion" class="btn btn-error">
+        <button
+          v-if="currentTopicId === 'unfamiliar'"
+          @click="toggleUnfamiliarQuestion"
+          class="btn btn-active"
+        >
+          Have conquered it!
+        </button>
+        <button
+          v-if="currentTopicId !== 'unfamiliar'"
+          @click="toggleUnfamiliarQuestion"
+          class="btn btn-error"
+        >
           Not so familiar!
         </button>
         <button @click="getRandomQuestion" class="btn btn-primary">
@@ -44,7 +55,8 @@ export default defineComponent({
     const { currentTopicId } = storeToRefs(topicStore);
 
     const questionSet = questionSetStore();
-    const { currentQuestion, questions, totalQuestionAmount } = storeToRefs(questionSet);
+    const { currentQuestion, questions, totalQuestionAmount } =
+      storeToRefs(questionSet);
     const getRandomQuestion = questionSet.getRandomQuestion;
     getRandomQuestion();
 
@@ -72,8 +84,8 @@ export default defineComponent({
     };
 
     const unfamiliarQuestions = unfamiliarQuestionsStore();
-    const addUnfamiliarQuestion = () => {
-      unfamiliarQuestions.addUnfamiliarQuestion(currentQuestion.value);
+    const toggleUnfamiliarQuestion = () => {
+      unfamiliarQuestions.toggleUnfamiliarQuestion(currentQuestion.value);
       getRandomQuestion();
     };
 
@@ -86,9 +98,10 @@ export default defineComponent({
       currentQuestion,
       questionsAmount,
       totalQuestionAmount,
+      currentTopicId,
       getRandomQuestion,
       toggleLikedQuestion,
-      addUnfamiliarQuestion,
+      toggleUnfamiliarQuestion,
     };
   },
 });

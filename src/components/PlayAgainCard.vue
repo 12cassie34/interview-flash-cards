@@ -12,14 +12,20 @@
         <div class="button-group">
           <button
             v-if="hasUnfamilarQuestions"
-            @click="setQuestionSet('unfamiliar')"
+            @click="
+              setQuestionSet('unfamiliar');
+              changeCurrentTopic('unfamiliar');
+            "
             class="mr-4 btn btn-primary"
           >
             Unfamiliar Questions
           </button>
           <button
             v-if="hasFavoriteQuestions"
-            @click="setQuestionSet('liked')"
+            @click="
+              setQuestionSet('liked');
+              changeCurrentTopic('liked');
+            "
             class="ml-4 btn btn-secondary"
           >
             Liked Questions
@@ -34,6 +40,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import { currentTopicStore } from "../stores/current-topic";
 import { questionSetStore } from "../stores/question-set";
 import { favoriteQuestionsStore } from "../stores/favorite-questions";
 import { unfamiliarQuestionsStore } from "../stores/unfamiliar-questions";
@@ -43,10 +50,23 @@ export default defineComponent({
     const questionSet = questionSetStore();
     const setQuestionSet = questionSet.setQuestionSet;
 
-    const hasFavoriteQuestions = favoriteQuestionsStore().favoriteQuestions.length ? true : false;
-    const hasUnfamilarQuestions = unfamiliarQuestionsStore().unfamiliarQuestions.length ? true : false;
+    const hasFavoriteQuestions = favoriteQuestionsStore().favoriteQuestions
+      .length
+      ? true
+      : false;
+    const hasUnfamilarQuestions = unfamiliarQuestionsStore().unfamiliarQuestions
+      .length
+      ? true
+      : false;
 
-    return { setQuestionSet, hasFavoriteQuestions, hasUnfamilarQuestions };
+    const changeCurrentTopic = currentTopicStore().changeCurrentTopic;
+
+    return {
+      setQuestionSet,
+      hasFavoriteQuestions,
+      hasUnfamilarQuestions,
+      changeCurrentTopic,
+    };
   },
 });
 </script>
