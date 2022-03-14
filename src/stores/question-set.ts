@@ -15,7 +15,8 @@ export const questionSetStore = defineStore('questionSetStore', {
         return {
             questions: commonQuestions,
             currentQuestion: commonQuestions[0] as Question,
-            totalQuestionAmount: commonQuestions.length,
+            totalQuestionAmount: commonQuestions.length + 1,
+            hasAnsweredAmount: 1,
             hasFinished: false,
         }
     },
@@ -36,13 +37,15 @@ export const questionSetStore = defineStore('questionSetStore', {
             this.questions = questionSetMap[topicId];
             this.currentQuestion = this.questions[0];
             this.hasFinished = false;
-            this.totalQuestionAmount = this.questions.length;
+            this.totalQuestionAmount = this.questions.length + 1;
+            this.hasAnsweredAmount = 1;
         },
         getRandomQuestion() {
             if (this.questions.length !== 0) {
                 const randomIndex = Math.floor(Math.random() * this.questions.length);
                 this.currentQuestion = this.questions[randomIndex];
                 this.questions = this.questions.filter(item => item.question !== this.currentQuestion.question);
+                this.hasAnsweredAmount += 1;
                 return;
             }
             if (this.questions.length === 0) {
